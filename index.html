@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 16px; }
+    h1 { margin-bottom: 4px; }
+    #student-id { color: #555; margin-bottom: 24px; }
+    form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    input, textarea, button { font-size: 1rem; padding: 8px; }
+    textarea { resize: vertical; min-height: 60px; }
+    button { cursor: pointer; }
+    #task-list { display: flex; flex-direction: column; gap: 12px; }
+    .task-item { border: 1px solid #ddd; border-radius: 8px; padding: 12px; }
+    .task-item.completed .task-title { text-decoration: line-through; color: #888; }
+    .task-title { font-weight: 600; margin-bottom: 4px; }
+    .task-description { color: #555; margin-bottom: 4px; }
+    .task-status { font-size: 0.85rem; color: #777; margin-bottom: 8px; }
+    .task-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    #status-message { margin: 16px 0; padding: 8px; border-radius: 4px; display: none; }
+    #status-message.error { display: block; background: #ffe0e0; color: #a00; }
+    #status-message.success { display: block; background: #e0ffe0; color: #060; }
+    #contribution-link { display: inline-block; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>Task Manager</h1>
+  <p>Student ID: <span id="student-id">YOUR_STUDENT_ID</span></p>
+
+  <form id="task-form">
+    <input type="text" id="task-title" placeholder="Task title" required />
+    <textarea id="task-description" placeholder="Description (optional)"></textarea>
+    <button type="submit" id="task-submit">Add Task</button>
+  </form>
+
+  <div id="status-message"></div>
+  <div id="task-list"></div>
+
+  <a href="contribution.html" id="contribution-link">View Team Contribution Page</a>
+
+  <script src="app.js"></script>
+</body>
+</html>
