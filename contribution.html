@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Team Contribution</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 30px auto; padding: 0 15px; }
+    button { padding: 8px 16px; cursor: pointer; margin-top: 10px; }
+    #contributor-student-id { font-weight: bold; color: #0066cc; }
+  </style>
+</head>
+<body>
+  <h1>Team Contribution</h1>
+  <p><a href="index.html">Back to Task Manager</a></p>
+
+  <button id="load-contributor">Show Contributor</button>
+  <p>Contributor Student ID: <span id="contributor-student-id"></span></p>
+
+  <script>
+    document.getElementById('load-contributor').addEventListener('click', async () => {
+      try {
+        const res = await fetch('contribution.json');
+        if (!res.ok) throw new Error('Could not load contribution.json');
+        const data = await res.json();
+        document.getElementById('contributor-student-id').textContent = data.contributorStudentId;
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    });
+  </script>
+</body>
+</html>
